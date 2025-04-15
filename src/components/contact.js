@@ -43,7 +43,7 @@ const Contact = () => {
         <button type="submit">Send Email</button>
       </form>
       <footer className="footer">
-        <p>© 2025 Ziad Ahmed Matar. All rights reserved.</p>
+        <p>© 2025 Ziad Ahmed Matar | V1.0 | All rights reserved.</p>
       </footer>
     </section>
   );

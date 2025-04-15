@@ -1,30 +1,57 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/CSS/navBar.css";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">Ziad Matar</Link>
       </div>
-      <ul className="navbar-links">
+
+      <div
+        className={`hamburger ${menuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+      >
+        <span className="bar" />
+        <span className="bar" />
+        <span className="bar" />
+      </div>
+
+      <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/experience">Experience</Link>
+          <Link to="/experience" onClick={() => setMenuOpen(false)}>
+            Experience
+          </Link>
         </li>
         <li>
-          <Link to="/education">Education</Link>
+          <Link to="/education" onClick={() => setMenuOpen(false)}>
+            Education
+          </Link>
         </li>
         <li>
-          <Link to="/projects">Projects</Link>
+          <Link to="/projects" onClick={() => setMenuOpen(false)}>
+            Projects
+          </Link>
         </li>
         <li>
-          <Link to="/courses">Courses</Link>
+          <Link to="/courses" onClick={() => setMenuOpen(false)}>
+            Courses
+          </Link>
         </li>
         <li>
-          <Link to="/skills">Skills</Link>
+          <Link to="/skills" onClick={() => setMenuOpen(false)}>
+            Skills
+          </Link>
         </li>
       </ul>
     </nav>
