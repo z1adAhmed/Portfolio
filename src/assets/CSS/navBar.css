@@ -28,14 +28,16 @@
   list-style: none;
 }
 
-.navbar-links li a {
+.navbar-links li button {
+  background-color: transparent;
+  border: 0;
   color: #e0e0e0;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.navbar-links li a:hover {
+.navbar-links li button:hover {
   color: #00bcd4;
   transform: translateY(-2px);
 }
@@ -84,8 +86,21 @@
     display: flex;
   }
 
-  .navbar-links li a {
+  .navbar-links li button {
     font-size: 1.2rem;
     padding: 10px 0;
   }
+}
+body.fade-out {
+  opacity: 0; /* Make content invisible */
+  transition: opacity 0.25s ease-in-out; /* Smooth fading effect */
+}
+
+body.fade-in {
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.25s ease-in-out; /* Smooth fading effect */
+}
+
+body.fade-in.visible {
+  opacity: 1; /* Fade-in to full visibility */
 }

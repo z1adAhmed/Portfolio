@@ -1,12 +1,27 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import "../assets/CSS/navBar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
+  const handleclick = (page) => {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+      navigate(page);
+      setTimeout(() => {
+        document.body.classList.remove("fade-out");
+        document.body.classList.add("fade-in");
+        setTimeout(() => {
+          document.body.classList.add("visible");
+        }, 100);
+      }, 100);
+    }, 1000);
+    document.body.classList.remove("fade-in");
+    document.body.classList.remove("visible");
+  };
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -24,34 +39,64 @@ const Navbar = () => {
 
       <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
         <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleclick("/");
+            }}
+          >
             Home
-          </Link>
+          </button>
         </li>
         <li>
-          <Link to="/experience" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleclick("/experience");
+            }}
+          >
             Experience
-          </Link>
+          </button>
         </li>
         <li>
-          <Link to="/education" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleclick("/education");
+            }}
+          >
             Education
-          </Link>
+          </button>
         </li>
         <li>
-          <Link to="/projects" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleclick("/projects");
+            }}
+          >
             Projects
-          </Link>
+          </button>
         </li>
         <li>
-          <Link to="/courses" onClick={() => setMenuOpen(false)}>
-            Courses
-          </Link>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleclick("/cources");
+            }}
+          >
+            Cources
+          </button>
         </li>
         <li>
-          <Link to="/skills" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleclick("/skills");
+            }}
+          >
             Skills
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>
