@@ -82,10 +82,10 @@ const Navbar = () => {
           <button
             onClick={() => {
               setMenuOpen(false);
-              handleclick("/cources");
+              handleclick("/courses");
             }}
           >
-            Cources
+            Courses
           </button>
         </li>
         <li>

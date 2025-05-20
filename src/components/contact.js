@@ -11,10 +11,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_p37grty", // replace with your EmailJS service ID
-        "template_rumfqwd", // replace with your template ID
+        "service_p37grty",
+        "template_rumfqwd",
         form.current,
-        "mz16gY_3yH00sOE6w" // replace with your public key (user ID)
+        "mz16gY_3yH00sOE6w"
       )
       .then(
         (result) => {
